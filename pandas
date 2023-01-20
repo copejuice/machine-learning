@@ -1,0 +1,85 @@
+\\import data frame (DF)\\
+
+df = pd.read_csv('https://sololearn.com/uploads/files/titanic.csv')
+print(df.head()) \\allows you to see the first 5 lines of the DF.\\
+
+\\use describe method for insights on data\\
+
+import pandas as pd
+pd.options.display.max_columns = 6
+df = pd.read_csv('https://sololearn.com/uploads/files/titanic.csv')
+print(df.describe())
+
+\\viewing specific column in DF, method is Pandas Series and will need to use square brackets\\
+
+import pandas as pd
+df = pd.read_csv('https://sololearn.com/uploads/files/titanic.csv')
+col = df['Fare']
+print(col)
+
+\\select multiple columns of DF to create a smaller DF\\
+
+import pandas as pd
+df = pd.read_csv('https://sololearn.com/uploads/files/titanic.csv')
+small_df = df[['Age',  'Sex', 'Survived']]
+print(small_df.head())
+
+\\to change or add column for a different use of data i.e. BOOLEAN (true/false)\\
+
+import pandas as pd
+df = pd.read_csv('https://sololearn.com/uploads/files/titanic.csv')
+print(df['Sex'] == 'male')
+
+\\creating a new column\\
+
+import pandas as pd
+df = pd.read_csv('https://sololearn.com/uploads/files/titanic.csv')
+df['male'] = df['Sex'] == 'male'
+print(df.head())
+
+\\using the values attribute to get the values from the frame column as a numpy array. The code generates a number format\\
+
+import pandas as pd
+df = pd.read_csv('https://sololearn.com/uploads/files/titanic.csv')
+print(df['Fare'].values) 
+
+\\2-D numpy array, you can tell because there are 2 sets of brackets\\
+
+import pandas as pd
+df = pd.read_csv('https://sololearn.com/uploads/files/titanic.csv')
+print(df[['Pclass', 'Fare', 'Age']].values)
+
+\\If you want the shape (how many rows and columns in the array) and You can also use the shape attribute on a pandas DataFrame (df.shape)\\
+
+import pandas as pd
+df = pd.read_csv('https://sololearn.com/uploads/files/titanic.csv')
+arr = df[['Pclass', 'Fare', 'Age']].values
+print(arr.shape)
+
+\\You can print a single column, or a specific row and a specific column, or all rows and a specific column. REMEMBER --- counting of rows starts at 0\\
+
+import pandas as pd
+df = pd.read_csv('https://sololearn.com/uploads/files/titanic.csv')
+arr = df[['Pclass', 'Fare', 'Age']].values
+print(arr[0, 1])
+print(arr[0])
+print(arr[:,2])
+
+\\A mask is a boolean array (True/False values) that tells us which values from the array we’re interested in\\
+
+import pandas as pd
+df = pd.read_csv('https://sololearn.com/uploads/files/titanic.csv')
+# take first 10 values for simplicity
+arr = df[['Pclass', 'Fare', 'Age']].values[:10]
+mask = arr[:, 2] < 18
+print(arr[mask])
+print(arr[arr[:, 2] < 18])
+
+\\Summing an array of boolean values gives the count of the number of True values\\
+
+import pandas as pd
+df = pd.read_csv('https://sololearn.com/uploads/files/titanic.csv')
+arr = df[['Pclass', 'Fare', 'Age']].values
+mask = arr[:, 2] < 18
+print(mask.sum())
+print((arr[:, 2] < 18).sum())
