@@ -1,0 +1,10 @@
+\\A scatter plot is used to show all the values from your data on a graph. In order to get a visual representation of our data, we have to limit our data to two features\\
+
+import matplotlib.pyplot as plt
+plt.scatter(df['Age'], df['Fare']) \\1st is X axis, 2nd is Y axis\\
+plt.xlabel('Age')
+plt.ylabel('Fare')\\can add lables for plotting\\
+plt.scatter(df['Age'], df['Fare'], c=df['Pclass'])\\color code scatter plot\\
+
+\\In matplotlib, we use the scatter function to create a scatter plot and the plot function for a line. i.e. plt.plot([0, 80], [85, 5])\\
+
